@@ -15,17 +15,17 @@ list_of_files = [
     f"src/{project_name}/components/model_trainer.py",
     f"src/{project_name}/pipeline/predict_pipeline.py",
     f"src/{project_name}/pipeline/train_pipeline.py",
-    f"src/{project_name}/Dockerfile",
-    f"src/{project_name}/app.py",
     f"src/{project_name}/utils/__init__.py",
     f"src/{project_name}/utils/common.py",
     f"src/{project_name}/exception.py",
     f"src/{project_name}/logger.py",
-    f"src/{project_name}/notebook/demo_notebook.py",
-    f"src/{project_name}/templates/index.html",
-    f"src/{project_name}/config/__init__.py",
-    f"src/{project_name}/config/config.yaml",
-    f"src/{project_name}/params.yaml"
+    "config/__init__.py",
+    "config/config.yaml",
+    "Dockerfile",
+    "app.py",
+    "research/trials.ipynb",
+    "params.yaml",
+    "templates/index.html"
 ]
 
 for filepath in list_of_files:
