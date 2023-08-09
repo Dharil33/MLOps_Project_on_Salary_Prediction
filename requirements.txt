@@ -7,4 +7,5 @@ Flask
 fastapi
 dill
 boto3
+python-decouple
 # -e .
