@@ -6,10 +6,11 @@ import pandas as pd
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
 from boto3.session import Session
-from decouple import Config
+from decouple import config
+from src.components.data_transformation import DataTransformation
 
-ACCESS_KEY_ID = Config('ACCESS_KEY_ID')
-SECRET_KEY = Config('SECRET_KEY')
+ACCESS_KEY_ID = config('ACCESS_KEY_ID')
+SECRET_KEY = config('SECRET_KEY')
 
 @dataclass
 class DataIngestionConfig:
@@ -50,4 +51,7 @@ class DataIngestion:
         
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data = obj.initiate_data_ingestion()
+    data_transformation = DataTransformation()
+    train_arr,test_arr,_ = data_transformation.initiate_data_transformation(train_data,test_data)
+    
