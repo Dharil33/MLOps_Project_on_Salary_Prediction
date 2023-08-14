@@ -77,10 +77,16 @@ class DataTransformation:
             input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
 
-            train_arr = np.concatenate([
-                input_feature_train_arr, np.array(target_feature_train_df)
-            ])
-            test_arr = np.concatenate([input_feature_test_arr, np.array(target_feature_test_df)])
+            logging.info(f"input feature train shape: {input_feature_train_df.shape}")
+            logging.info(f"target feature train shape: {target_feature_train_df.shape}")
+
+            target_train_temp_arr = np.array(target_feature_train_df)
+            
+            train_arr = np.c_[
+                input_feature_train_arr, target_train_temp_arr
+            ]
+
+            test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info(f"Saved preprocessing object.")
 
