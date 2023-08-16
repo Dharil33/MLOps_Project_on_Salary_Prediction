@@ -25,13 +25,13 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entering DataIngestion config")
         try:
-            # session = Session(aws_access_key_id=ACCESS_KEY_ID,
-            #       aws_secret_access_key=SECRET_KEY)
-            # s3 = session.resource('s3')
-            # bucket = "salarydata"
-            # my_bucket = s3.Bucket(bucket)
-            # my_bucket.download_file('Salary_Data.csv',self.ingestion_config.raw_data_path)
-            # logging.info("Dataset downloaded from AWS S3")
+            session = Session(aws_access_key_id=ACCESS_KEY_ID,
+                  aws_secret_access_key=SECRET_KEY)
+            s3 = session.resource('s3')
+            bucket = "salarydata"
+            my_bucket = s3.Bucket(bucket)
+            my_bucket.download_file('Salary_Data.csv',self.ingestion_config.raw_data_path)
+            logging.info("Dataset downloaded from AWS S3")
             
             df = pd.read_csv(self.ingestion_config.raw_data_path)
             logging.info('Read the dataset as dataframe')
