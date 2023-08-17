@@ -21,8 +21,8 @@ class DataTransformation:
       
     def get_transformation_obj(self):
         try:
-            cat_features = ['Gender','Education Level','Job Title']
-            num_features = ['Age','Years of Experience']
+            cat_features = ['Gender','Education_Level','Job_Title']
+            num_features = ['Age','Years_of_Experience']
             
             num_pipeline = Pipeline(
                 steps=[
@@ -59,13 +59,24 @@ class DataTransformation:
             preprocessing_obj = self.get_transformation_obj()
             target_column_name = "Salary"
             
+            train_df.rename(columns={'Years of Experience':'Years_of_Experience',
+                                    'Education Level':'Education_Level',
+                                    'Job Title':'Job_Title'},inplace=True)
+            
+            test_df.rename(columns={'Years of Experience':'Years_of_Experience',
+                                    'Education Level':'Education_Level',
+                                    'Job Title':'Job_Title'},inplace=True)
+            
+            logging.info(f"train_df: {train_df.columns}")
+            logging.info(f"test_df: {test_df.columns}")
+            
             train_df.dropna(axis=0,inplace=True)
             test_df.dropna(axis=0,inplace=True)
             
             logging.info("Null values has been removed!!")
             
-            train_df['Job Title'] = train_df['Job Title'].apply(categorize_job_title)
-            test_df['Job Title'] = test_df['Job Title'].apply(categorize_job_title)
+            train_df['Job_Title'] = train_df['Job_Title'].apply(categorize_job_title)
+            test_df['Job_Title'] = test_df['Job_Title'].apply(categorize_job_title)
 
             logging.info("Job Title has been categorized!!")
 
