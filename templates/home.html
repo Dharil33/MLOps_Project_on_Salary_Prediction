@@ -1,0 +1,102 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Salary Prediction App</h1>
+   
+       <form action="{{ url_for('predict_salary')}}" method="post">
+        <h1>
+            <legend>Salary Prediction App</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="Gender" placeholder="Enter you Gender" required>
+                <option class="placeholder" selected disabled value="">Select your Gender</option>
+                <option value="Male">
+                    Male
+                </option>
+                <option value="Female">
+                    Female
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Education Level</label>
+            <select class="form-control" name="Education_Level" placeholder="Enter you Gender" required>
+                <option class="placeholder" value="Education_Level">Select your Education</option>
+                <option value="Bachelor's">
+                    Bachelor's
+                </option>
+                <option value="Master's">
+                    Master's
+                </option>
+                <option value="PhD">
+                    PhD
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Job Title</label>
+            <select class="form-control" name="Job_Title" placeholder="Enter you ethnicity" required>
+                <option class="placeholder" value="Job_Title">Select Job Title</option>
+                <option value="Software/Developer">
+                    Software/Developer
+                </option>
+                <option value="Data Analyst/Scientist">
+                    Data Analyst/Scientist
+                </option>
+                <option value="Sales">
+                    Sales
+                </option>
+                <option value="Manager/Director/vp">
+                    Manager/Director/vp
+                </option>
+                <option value="Marketing/Social Media">
+                    Marketing/Social Media
+                </option>
+                <option value="Product/Designer">
+                    Product/Designer
+                </option>
+                <option value="HR/Human Resource">
+                    HR/Human Resource
+                </option>
+                <option value="Financial/Accountant">
+                    Financial/Accountant
+                </option>
+                <option value="Project Manager">
+                    Project Manager
+                </option>
+                <option value="IT/Technical Support">
+                    IT/Technical Support
+                </option>
+                <option value="Operations/Supply Chain">
+                    Operations/Supply Chain
+                </option>
+                <option value="Customer Service/Receptionalist">
+                    Customer Service/Receptionalist
+                </option>
+                <option value="Other">
+                    Other
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="text" name="Age"
+                placeholder="Enter your Age"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Years of Experince</label>
+            <input class="form-control" type="text" name="Years_of_Experience"
+                placeholder="Enter your Years_of_Experience" />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Salary" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>

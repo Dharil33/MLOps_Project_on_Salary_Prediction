@@ -34,7 +34,7 @@ class DataTransformation:
 
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
-                ('one_hot_encoder',OneHotEncoder(sparse_output=False))
+                ('one_hot_encoder',OneHotEncoder(sparse_output=False,handle_unknown='ignore'))
                 ]
             )
             preprocessor=ColumnTransformer(

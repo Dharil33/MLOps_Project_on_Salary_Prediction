@@ -25,15 +25,13 @@ class CustomData:
                  Education_Level: str,
                  Age: int,
                  Job_Title: str,
-                 Years_of_Experience: int,
-                 Salary: int	
+                 Years_of_Experience: int,	
     ):
         self.Gender = Gender
         self.Education_Level =Education_Level
         self.Age = Age
         self.Job_Title = Job_Title
         self.Years_of_Experience =Years_of_Experience
-        self.Salary = Salary
 
     def get_data_as_dataframe(self):
         try:
@@ -42,8 +40,7 @@ class CustomData:
                 "Education_Level": [self.Education_Level],
                 "Age": [self.Age],
                 "Job_Title": [self.Job_Title],
-                "Years_of_Experience": [self.Years_of_Experience],
-                "Salary": [self.Salary]
+                "Years_of_Experience": [self.Years_of_Experience]
             }
             return pd.DataFrame(custom_data_input_dict)
         except Exception as e:
