@@ -34,7 +34,7 @@ def predict_salary():
             predictpipeline_obj = PredictPipeline()
             results = predictpipeline_obj.predict(pred_df)
             logging.info("After the prediction")
-            return render_template('home.html',results=results[0])
+            return render_template('home.html',results=int(results[0]))
     except Exception as e:
         raise CustomException(e,sys)
         
