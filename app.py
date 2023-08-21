@@ -12,9 +12,10 @@ application = Flask(__name__)
 
 app = application
 
-@app.route('/')
+@app.route('/home')
 def index():
-    return render_template('index.html')
+    return "Hello From Flask!!"
+
 
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_salary():
@@ -40,4 +41,4 @@ def predict_salary():
         raise CustomException(e,sys)
         
 if __name__== '__main__':
-    app.run(host='0.0.0.0',port=5000)
+    app.run(debug=True)
